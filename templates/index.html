@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+   
+	{% if data %}
+	<h3>{{data}}</h3>
+	{% else %}
+
+	<!-- <a href="/logout">Logout</a> <br> <br> -->
+	<a href="/logout" data-toggle="modal" data-target="#logoutModal">logout</a>
+	
+	<h1>Profile Update</h1>
+	
+<form action="/profile/" method="POST">
+  <div class="form-group">
+    <label for="formGroupExampleInput">Name</label>
+    <input type="text" class="form-control" id="formGroupExampleInput"  name="name" placeholder="name">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">dob</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2"  name="dob" placeholder="dob">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Email</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2"  name="email" placeholder="email">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">SSN</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2"  name="ssn" placeholder="ssn">
+  </div>
+  <button type="submit" class="btn btn-primary">Profile Submit</button>
+</form>
+	
+	{% endif %}
+
+{% else %}
+<p>Kindly Login or Register!</p>
+
+<!-- <a href="/login">Login</a> 
+<a href="/register">Register</a> -->
+<div class="container">
+	<div class="row" style="margin-top: 40px">
+		<div class="col-sm-6">
+			<ul>
+				<li class="col-sm-6"><a href="/login" class="btn form-control btn-success">Login</a></li>
+				<li class="col-sm-6"><a href="/register" class="btn form-control btn-primary">Register</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+{% endif %}
+{% endblock %}

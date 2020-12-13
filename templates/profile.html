@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+<p>Oh no Dont show page</p>
+{% else %}
+
+<h2>Profile</h2>
+
+
+{% for row in rows %}
+<div>
+
+  <div>
+    <h1><b>{{row["Names"]}}</b></h1>
+  </div>
+
+  <div>
+        
+          
+          <strong>Dob</strong> : <h5>{{row["Dob"]}}</h5>
+          <strong>Email</strong> : <h5>{{row["Email"]}}</h5>
+          <strong>Ssn</strong> : <h5>{{row["Ssn"]}}</h5>
+
+
+    </div>
+
+
+</div>
+
+
+
+{% endfor %}
+
+{% endif %}
+{% endblock %}
